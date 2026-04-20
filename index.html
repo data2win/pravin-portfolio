@@ -473,7 +473,7 @@ footer span{color:var(--amber)}
 <section class="hero" id="top">
   <div>
     <div class="hero-eyebrow">Education · Data · Policy · AI</div>
-    <h1>Pravin Patil</h1>
+    <h1>Pravin <em>Patil</em></h1>
     <p class="hero-sub">Young India Fellow '25 | Project Manager at ConveGenius.AI | Gandhi Fellow'21-23 (Batch 14) | Building data-driven education systems that reach the last mile across India.</b></p>
     <div class="hero-tags">
       <span class="tag a">Power BI</span>
@@ -723,7 +723,7 @@ footer span{color:var(--amber)}
 <section id="documents">
   <div class="section-inner">
     <div class="section-label">08 — Documents</div>
-    <h2 class="section-title">View &amp; <em>download</em> credentials</h2>
+    <h2 class="section-title">View <em>credentials</em></h2>
     <div class="docs-grid">
       <div class="doc-card reveal" onclick="openDoc('docs/Pravin_Patil_Resume.pdf','pdf','Resume')">
         <span class="doc-type pdf">PDF</span>
@@ -786,9 +786,9 @@ footer span{color:var(--amber)}
         <div class="doc-action">View Document →</div>
       </div>
     </div>
-    <p style="margin-top:24px;font-size:13px;color:var(--muted);font-family:'IBM Plex Mono',monospace;line-height:1.7;">
+    <!-- <p style="margin-top:24px;font-size:13px;color:var(--muted);font-family:'IBM Plex Mono',monospace;line-height:1.7;">
       💡 To enable document preview: upload all files from the <code style="color:var(--amber)">docs/</code> folder to your GitHub repository alongside <code style="color:var(--amber)">index.html</code>
-    </p>
+    </p> -->
   </div>
 </section>
 <div class="divider"></div>
@@ -822,8 +822,7 @@ footer span{color:var(--amber)}
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer">
-      <a id="modalDownload" href="#" download class="btn btn-p" style="font-size:12px;padding:9px 20px">⬇ Download</a>
-      <span class="modal-note">Documents hosted in /docs folder on GitHub Pages</span>
+      <!-- <span class="modal-note">Documents hosted in /docs folder on GitHub Pages (view-only preview)</span> -->
     </div>
   </div>
 </div>
@@ -845,13 +844,11 @@ function openDoc(path, type, title) {
   const modal = document.getElementById('docModal');
   const body = document.getElementById('modalBody');
   const titleEl = document.getElementById('modalTitle');
-  const dl = document.getElementById('modalDownload');
   titleEl.textContent = title;
-  dl.href = path;
   if(type === 'pdf') {
     body.innerHTML = '<iframe class="modal-iframe" src="' + path + '#toolbar=1&navpanes=0" title="' + title + '"></iframe>';
   } else {
-    body.innerHTML = '<img class="modal-img" src="' + path + '" alt="' + title + '" onerror="this.parentElement.innerHTML=\'<div style=\\"padding:40px;text-align:center;color:var(--muted);font-family:IBM Plex Mono,monospace;font-size:13px;\\">📂 File not yet uploaded.<br/><br/>Upload <b style=\\"color:var(--amber)\\">docs/' + path.split('/').pop() + '</b><br/>to your GitHub repo to view it here.</div>\'"/>';
+    body.innerHTML = '<img class="modal-img" src="' + path + '" alt="' + title + '" onerror="this.parentElement.innerHTML=\'<div style=\\"padding:40px;text-align:center;color:var(--muted);font-family:IBM Plex Mono,monospace;font-size:13px;\\"></div>\>';
   }
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
